@@ -1,0 +1,45 @@
+Welcome to ODD Beans!
+
+This project provides easy access to creating and reading openData Definition (ODD) files.
+
+o Requirements
+o Building the beans
+o Usage
+o Oddbod ODD profile
+o More information
+
+Requirements
+============
+To build the ODD jar, you need Maven 2.x installed.
+
+Building the beans
+==================
+In this directory, do the following:
+
+mvn clean install
+
+This will build the ODD jar in:
+
+target/odd-beans-1.0.0.jar
+
+The source for the beans is generated in:
+
+src/main/java
+
+Usage
+=====
+To see how to use the jar, have a look at the unit tests in:
+
+src/test/java
+
+If you use IntelliJ IDEA, follow the instructions in pom.xml to generate project files.
+
+Oddbod ODD profile
+==================
+The file xsd/oddbod.xsd defines an emerging ODD profile called Oddbod. This is being used
+as the data format for migrating Elgg 0.9 to 1.5.
+
+More information
+================
+openData Definition http://www.opendd.net/
+codeBrane http://codebrane.com/blog

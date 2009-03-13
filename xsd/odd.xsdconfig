@@ -1,0 +1,25 @@
+<xb:config xmlns:xb="http://xml.apache.org/xmlbeans/2004/02/xbean/config"
+    		   xmlns:odd="http://www.opendd.net/"
+					 xmlns:odb="http://www.opendd.net/oddbod/">
+
+	<!-- Namespaces to package mappings -->
+	<xb:namespace uri="http://www.opendd.net/">
+		<xb:package>net.opendd</xb:package>
+	</xb:namespace>
+	
+	<xb:namespace uri="http://www.opendd.net/oddbod/">
+		<xb:package>net.opendd.oddbod</xb:package>
+	</xb:namespace>
+	
+	<!-- Mappings from types defined in odd.xsd to Java classes -->
+  <xb:qname name="odd:entityType" javaname="Entity" />
+	<xb:qname name="odd:removeEntityType" javaname="RemoveEntity" />
+	<xb:qname name="odd:metadataType" javaname="Metadata" />
+	<xb:qname name="odd:removeMetadataType" javaname="RemoveMetadata" />
+	<xb:qname name="odd:relationshipType" javaname="Relationship" />
+	<xb:qname name="odd:removeRelationshipType" javaname="RemoveRelationship" />
+	
+	<!-- Mappings from types defined in oddbod.xsd to Java classes -->
+  <xb:qname name="odb:entityType" javaname="Entity" />
+
+</xb:config>

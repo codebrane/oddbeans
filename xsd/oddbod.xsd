@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<schema targetNamespace="http://www.opendd.net/oddbod/"
+        xmlns:odb="http://www.opendd.net/oddbod/"
+				xmlns:odd="http://www.opendd.net/"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+        blockDefault="substitution"
+        version="2.0">
+
+	<annotation>
+		<documentation>
+			ODD Oddbod profile. For migrating Elgg 0.9 to 1.5
+		</documentation>
+	</annotation>
+
+  <import namespace="http://www.opendd.net/" schemaLocation="odd.xsd"/>
+
+	<simpleType name="entityClassAttrType">
+	  <restriction base="string">
+	    <pattern value="person|community"/>
+	  </restriction>
+	</simpleType>
+
+  <complexType name="entityType">
+    <complexContent>
+      <extension base="odd:entityType">
+        <attribute name="class" type="odb:entityClassAttrType" use="required"/>
+      </extension>
+    </complexContent>
+  </complexType>
+
+</schema>

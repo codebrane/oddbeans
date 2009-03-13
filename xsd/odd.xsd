@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<schema targetNamespace="http://www.opendd.net/"
+        xmlns:odd="http://www.opendd.net/"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        elementFormDefault="qualified"
+        attributeFormDefault="unqualified"
+        blockDefault="substitution"
+        version="2.0">
+
+	<annotation>
+		<documentation>
+			Open Data Definition
+		</documentation>
+	</annotation>
+	
+	<complexType name="entityType">
+		<attribute name="uuid" type="string" use="required" />
+		<attribute name="class" type="string" use="required" />
+		<attribute name="subclass" type="string" />
+		<attribute name="published" type="string" />
+	</complexType>
+	
+	<complexType name="removeEntityType">
+		<attribute name="uuid" type="string" use="required" />
+		<attribute name="published" type="string" use="required" />
+	</complexType>
+	
+	<complexType name="metadataType">
+		<simpleContent>
+			<extension base="string">
+				<attribute name="uuid" type="string" use="required" />
+				<attribute name="entity_uuid" type="string" use="required" />
+				<attribute name="name" type="string" use="required" />
+				<attribute name="type" type="string" />
+				<attribute name="owner_uuid" type="string" />
+				<attribute name="published" type="string" />
+			</extension>
+		</simpleContent>
+	</complexType>
+	
+	<complexType name="removeMetadataType">
+		<attribute name="uuid" type="string" use="required" />
+	</complexType>
+	
+	<complexType name="relationshipType">
+		<attribute name="uuid_one" type="string" use="required" />
+		<attribute name="type" type="string" use="required" />
+		<attribute name="uuid_two" type="string" use="required" />
+		<attribute name="published" type="string" />
+	</complexType>
+	
+	<complexType name="removeRelationshipType">
+		<attribute name="uuid_one" type="string" use="required" />
+		<attribute name="type" type="string" use="required" />
+		<attribute name="uuid_two" type="string" use="required" />
+	</complexType>
+	
+	<element name="odd">
+		<complexType>
+			<sequence>
+				<element name="entity" type="odd:entityType" minOccurs="0" maxOccurs="unbounded" />
+				<element name="remove_entity" type="odd:removeEntityType" minOccurs="0" maxOccurs="unbounded" />
+				<element name="metadata" type="odd:metadataType" minOccurs="0" maxOccurs="unbounded" />
+				<element name="remove_metadata" type="odd:removeMetadataType" minOccurs="0" maxOccurs="unbounded" />
+				<element name="relationship" type="odd:relationshipType" minOccurs="0" maxOccurs="unbounded" />
+				<element name="remove_relationship" type="odd:removeRelationshipType" minOccurs="0" maxOccurs="unbounded" />
+			</sequence>
+			<attribute name="version" type="string" use="required" />
+		</complexType>
+	</element>
+	
+</schema>

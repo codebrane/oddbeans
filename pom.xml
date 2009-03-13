@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+	<!-- To generate IntelliJ IDEA files:
+			 mvn idea:idea -DjdkName=1.5.0_06 -->
+			
+  <name>ODD Beans</name>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>odd-beans</artifactId>
+  <groupId>net.opendd</groupId>
+  <version>1.0.0</version>
+
+	<description>
+		Open Data Definition (ODD) Java beans and tests
+	</description>
+	
+	<organization>
+    <name>codeBrane</name>
+    <url>http://codebrane.com/blog</url>
+  </organization>
+
+	<inceptionYear>2009</inceptionYear>
+	
+	<developers>
+    <developer>
+      <id>codebrane</id>
+      <name>Alistair Young</name>
+      <email>alistair@codebrane.com</email>
+      <roles>
+        <role>Project Manager</role>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+      <organization>codeBrane</organization>
+      <timezone>0</timezone>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>MOZILLA PUBLIC LICENSE Version 1.1</name>
+      <url>http://www.mozilla.org/MPL/MPL-1.1.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <dependencies>
+      <dependency>
+        <groupId>org.apache.xmlbeans</groupId>
+        <artifactId>jsr173_1.0_api</artifactId>
+				<version>2.3.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.xmlbeans</groupId>
+        <artifactId>xbean</artifactId>
+				<version>2.3.0</version>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+				<version>4.4</version>
+      </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+	    <plugin>
+        <inherited>true</inherited>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+  
+      <!-- mvn clean xmlbeans:xmlbeans install -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xmlbeans-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>xmlbeans</goal>
+            </goals>
+          </execution>
+        </executions>
+        <inherited>true</inherited>
+        <configuration>
+          <schemaDirectory>${basedir}/xsd</schemaDirectory>
+          <sourceGenerationDirectory>src/main/java</sourceGenerationDirectory>
+          <download>true</download>
+          <noUpa>true</noUpa>
+          <xmlConfigs>
+            <xmlConfig implementation="java.io.File">${basedir}/xsd/odd.xsdconfig</xmlConfig>
+          </xmlConfigs>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
